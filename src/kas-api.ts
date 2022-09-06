@@ -1,4 +1,3 @@
-import { createHash } from "crypto";
 import { createClientAsync } from "soap";
 import { parseString } from "xml2js";
 import { APIResultTransformer } from "./api-result-transformer";
@@ -46,13 +45,9 @@ export class KasApi {
             suppressStack: true,
         });
 
-        const hash = createHash("sha1")
-            .update(this.password)
-            .digest("hex");
-
         const payload = JSON.stringify({
-            KasAuthData: hash,
-            KasAuthType: "sha1",
+            KasAuthData: this.password,
+            KasAuthType: "plain",
             KasRequestParams: data || {},
             KasRequestType: action,
             KasUser: this.account,
