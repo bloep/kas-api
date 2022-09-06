@@ -12,7 +12,7 @@
     "kasserver"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build-ts && npm run tslint",
+    "build": "npm run clean && npm run build-ts",
     "build-ts": "tsc",
     "watch": "tsc -w",
     "clean": "rm -rf dist"
